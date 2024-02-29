@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is where your description goes">
+    <meta name="keywords" content="one, two, three">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Book App | Edit Contact</title>
+    <!-- external CSS link -->
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Address Book: Node.js CRUD API with Express and MongoDB</h1>
+
+    <!-- Addresses -->
+    <h1>Edit Contact</h1>
+    <form id="editContactForm" action="/contacts/<%= contact._id %>" method="PUT">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" value="<%= contact.name %>" required><br>
+
+        <label for="gender">Gender:</label><br>
+        <select id="gender" name="gender">
+            <option value="male" <% if (contact.gender === 'male') { %> selected <% } %>>Male</option>
+            <option value="female" <% if (contact.gender === 'female') { %> selected <% } %>>Female</option>
+            <option value="other" <% if (contact.gender === 'other') { %> selected <% } %>>Other</option>
+        </select><br>
+
+        <label for="birthdate">Date of Birth:</label><br>
+        <input type="date" id="birthdate" name="birthdate" value="<%= contact.birthdate %>"><br>
+
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Format: 123-456-7890"
+            value="<%= contact.phone %>" required><br>
+
+        <label for="email">Email Address:</label><br>
+        <input type="email" id="email" name="email" value="<%= contact.email %>" required><br>
+
+        <label for="address">Address:</label><br>
+        <textarea id="address" name="address" rows="4" cols="50"><%= contact.address %></textarea><br>
+        
+        <button data-id="<%= contact._id %>" id="save-btn" class="btn btn-succes" type="submit">Save Changes</button>
+		<button data-id="<%= contact._id %>" id="cancel-btn" class="btn btn-succes" type="submit">Cancel</button>
+    </form>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

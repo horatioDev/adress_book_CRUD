@@ -1,0 +1,22 @@
+{
+  "name": "address_book",
+  "version": "1.0.0",
+  "description": "The Address Book App is a simple application that allows users to store and manage their contacts online. It provides basic CRUD functionality (Create, Read, Update, Delete) to handle contact information effectively.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "Horatio Hanley",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}

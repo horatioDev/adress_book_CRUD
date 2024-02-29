@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="This is where your description goes">
+    	<meta name="keywords" content="one, two, three">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+		<title>Address Book App</title>
+
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="/css/normalize.css">
+		<link rel="stylesheet" href="/css/style.css">
+	</head>
+	<body>
+		<h1>Address Book: Node.js CRUD API with Express and MongoDB</h1>
+
+		<!-- Addresses -->
+		<h1>Add New Contact</h1>
+		<form action="/contacts" method="POST">
+			<label for="name">Name:</label><br>
+			<input type="text" id="name" name="name" required><br>
+		
+			<label for="gender">Gender:</label><br>
+			<select id="gender" name="gender">
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+				<option value="other">Other</option>
+			</select><br>
+		
+			<label for="birthdate">Date of Birth:</label><br>
+			<input type="date" id="birthdate" name="birthdate"><br>
+		
+			<label for="phone">Phone Number:</label><br>
+			<input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Format: 123-456-7890"
+				required><br>
+		
+			<label for="email">Email Address:</label><br>
+			<input type="email" id="email" name="email" required><br>
+		
+			<label for="address">Address:</label><br>
+			<textarea id="address" name="address" rows="4" cols="50"></textarea><br>
+			
+			<button type="submit">Add Contact</button>
+		</form>
+
+		<script type="text/javascript" src="/js/main.js"></script>
+	</body>
+</html>

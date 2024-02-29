@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="This is where your description goes">
+    	<meta name="keywords" content="one, two, three">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+		<title>Address Book App</title>
+
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="/css/normalize.css">
+		<link rel="stylesheet" href="/css/style.css">
+		<script src="https://kit.fontawesome.com/29cb2c9a11.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<h1>Address Book: Node.js CRUD API with Express and MongoDB</h1>
+
+		<!-- Addresses -->
+		<h1>Add New Contact</h1>
+		<form action="/contacts" method="POST">
+			<label for="name">Name:</label><br>
+			<input type="text" id="name" name="name" required><br>
+		
+			<label for="gender">Gender:</label><br>
+			<select id="gender" name="gender">
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+				<option value="other">Other</option>
+			</select><br>
+		
+			<label for="birthdate">Date of Birth:</label><br>
+			<input type="date" id="birthdate" name="birthdate"><br>
+		
+			<label for="phone">Phone Number:</label><br>
+			<input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Format: 123-456-7890"
+				required><br>
+		
+			<label for="email">Email Address:</label><br>
+			<input type="email" id="email" name="email" required><br>
+		
+			<label for="address">Address:</label><br>
+			<textarea id="address" name="address" rows="4" cols="50"></textarea><br>
+			
+			<button type="submit">Add Contact</button>
+		</form>
+
+		<!-- Template -->
+		<h2>Address Contacts</h2>
+		
+		<ul class="contacts">
+			<% if (contacts && contacts.length > 0) {%>
+				<% contacts.forEach(contact => { %>
+					<li class="contact">
+						<section class="entry">
+							<section class="info">
+								<small>Gender: </small><%= contact.gender %><br>
+							<small>Name: </small><%= contact.name %><br>
+							<small>D.O.B:  </small><%= contact.birthdate %><br>
+							<address>Address: <%= contact.address %></address>	
+							<small>Email:</small> <%= contact.email %><br>				
+							<small>Contact No:</small> <%= contact.phone %><br>
+							</section>
+							<div class="crud-buttons">
+								<button data-id="<%= contact._id %>" class="btn btn-warning" id="update-btn">Update</button>
+								<button data-id="<%= contact._id %>" class="btn btn-danger" id="delete-btn">Delete</button>
+							</div>
+						</section>
+					</li>
+				<% }); %>
+			<% } else{ %>
+				<p>No contacts available.</p>
+			<%}%>
+		</ul>
+
+		<!-- Links to Other API's -->
+		<ul>
+			<!-- <li class="api-icon"><a href="/contacts"><i class="fas fa-address-book"></i> Address Book API</a></li> -->
+			<li class="api-icon"><a href="/posts"><i class="fas fa-pencil-alt"></i> Posts/Blog API</a></li>
+			<li class="api-icon"><a href="/tasks"><i class="fas fa-tasks"></i> Tasks Manager API</a></li>
+			<li class="api-icon"><a href="/employees"><i class="fas fa-users"></i> Team Tracker API</a></li>
+			<li class="api-icon"><a href="/quotes"><i class="fas fa-quote-left"></i> Quotes API</a></li>
+		</ul>
+		<!-- <%= contacts %> -->
+		<script src="/js/main.js"></script>
+	</body>
+</html>
